@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow.init(frame: UIScreen.main.bounds)
         if UsersInfoManager.shared.isAuthorized {
-            window?.rootViewController = AlbumVC()
+            let navigationController = UINavigationController()
+            navigationController.setViewControllers([AlbumVC()], animated: false)
+            window?.rootViewController = navigationController
         } else {
             window?.rootViewController = MainVC()
         }

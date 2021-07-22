@@ -11,7 +11,8 @@ class AlbumVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        title = "Mobile Up Gallery"
     }
 
 }
