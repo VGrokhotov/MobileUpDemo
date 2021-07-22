@@ -8,11 +8,22 @@
 import UIKit
 
 class MainVC: UIViewController {
-
+    
+    @IBOutlet weak var enterButton: UIButton!
+    
+    @IBAction func enterButtonPressed(_ sender: Any) {
+        print("lol")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        configureButton()
+    }
+    
+    func configureButton() {
+        enterButton.layer.cornerRadius = 10
+        enterButton.clipsToBounds = true
     }
 
 }

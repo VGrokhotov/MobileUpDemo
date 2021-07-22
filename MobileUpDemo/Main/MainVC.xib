@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainVC" customModule="MobileUpDemo" customModuleProvider="target">
             <connections>
+                <outlet property="enterButton" destination="7bB-rt-oYO" id="TfK-mU-Vc7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,9 +18,47 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Up" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3e-MV-VDK">
+                    <rect key="frame" x="20" y="144" width="222.5" height="57.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallery" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7x8-YM-p43">
+                    <rect key="frame" x="20" y="201.5" width="157" height="58"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bB-rt-oYO">
+                    <rect key="frame" x="20" y="782" width="374" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="XCl-Uy-8gy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Вход через VK"/>
+                    <connections>
+                        <action selector="enterButtonPressed:" destination="-1" eventType="touchUpInside" id="ZAc-rH-5As"/>
+                    </connections>
+                </button>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <point key="canvasLocation" x="20" y="84"/>
+            <constraints>
+                <constraint firstItem="7bB-rt-oYO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="6V2-tF-RcT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7x8-YM-p43" secondAttribute="trailing" constant="20" id="9eW-e4-Jz5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7bB-rt-oYO" secondAttribute="bottom" constant="20" id="CMx-6b-ird"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="B3e-MV-VDK" secondAttribute="trailing" constant="20" id="QBb-we-N5d"/>
+                <constraint firstItem="7x8-YM-p43" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="SYb-2a-7HA"/>
+                <constraint firstItem="B3e-MV-VDK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="Xcv-nl-7q4"/>
+                <constraint firstItem="7x8-YM-p43" firstAttribute="top" secondItem="B3e-MV-VDK" secondAttribute="bottom" id="ZXH-VN-dsi"/>
+                <constraint firstItem="B3e-MV-VDK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="h6X-bL-sad"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7bB-rt-oYO" secondAttribute="trailing" constant="20" id="tWK-Tz-AGj"/>
+            </constraints>
+            <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
         </view>
     </objects>
 </document>
