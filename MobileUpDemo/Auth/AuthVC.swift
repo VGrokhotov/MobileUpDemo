@@ -22,7 +22,8 @@ class AuthVC: UIViewController {
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "scope", value: "wall"),
             URLQueryItem(name: "response_type", value: "token"),
-            URLQueryItem(name: "v", value: "5.13")
+            URLQueryItem(name: "revoke", value: "1"),
+            URLQueryItem(name: "v", value: "5.131")
         ]
         return components?.url
     }
