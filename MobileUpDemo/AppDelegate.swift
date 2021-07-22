@@ -16,8 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        let rootViewController = MainVC()
-        window?.rootViewController = rootViewController
+        if UsersInfoManager.shared.isAuthorized {
+            window?.rootViewController = AlbumVC()
+        } else {
+            window?.rootViewController = MainVC()
+        }
         window?.makeKeyAndVisible()
         
         return true

@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		8F41107726A9AC0A00B2A723 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F41107526A9AC0A00B2A723 /* AuthVC.swift */; };
 		8F41107826A9AC0A00B2A723 /* AuthVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F41107626A9AC0A00B2A723 /* AuthVC.xib */; };
+		8F41107B26A9DF1F00B2A723 /* UserInfoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F41107A26A9DF1F00B2A723 /* UserInfoStorage.swift */; };
+		8F41107D26A9E22C00B2A723 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F41107C26A9E22C00B2A723 /* UserInfo.swift */; };
+		8F41107F26A9E2B600B2A723 /* UserInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F41107E26A9E2B600B2A723 /* UserInfoObject.swift */; };
+		8F41108126A9E55400B2A723 /* UsersInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F41108026A9E55400B2A723 /* UsersInfoManager.swift */; };
+		8F41108426A9F26600B2A723 /* AlbumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F41108226A9F26600B2A723 /* AlbumVC.swift */; };
+		8F41108526A9F26600B2A723 /* AlbumVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F41108326A9F26600B2A723 /* AlbumVC.xib */; };
 		8FD4A88926A8B48D005FDCBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD4A88826A8B48D005FDCBA /* AppDelegate.swift */; };
 		8FD4A89326A8B48D005FDCBA /* MobileUpDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FD4A89126A8B48D005FDCBA /* MobileUpDemo.xcdatamodeld */; };
 		8FD4A89526A8B48E005FDCBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD4A89426A8B48E005FDCBA /* Assets.xcassets */; };
@@ -20,6 +26,12 @@
 /* Begin PBXFileReference section */
 		8F41107526A9AC0A00B2A723 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		8F41107626A9AC0A00B2A723 /* AuthVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthVC.xib; sourceTree = "<group>"; };
+		8F41107A26A9DF1F00B2A723 /* UserInfoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStorage.swift; sourceTree = "<group>"; };
+		8F41107C26A9E22C00B2A723 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		8F41107E26A9E2B600B2A723 /* UserInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoObject.swift; sourceTree = "<group>"; };
+		8F41108026A9E55400B2A723 /* UsersInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersInfoManager.swift; sourceTree = "<group>"; };
+		8F41108226A9F26600B2A723 /* AlbumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumVC.swift; sourceTree = "<group>"; };
+		8F41108326A9F26600B2A723 /* AlbumVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumVC.xib; sourceTree = "<group>"; };
 		8FD4A88526A8B48D005FDCBA /* MobileUpDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD4A88826A8B48D005FDCBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FD4A88F26A8B48D005FDCBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,6 +54,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F41107926A9DEDE00B2A723 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8F41107A26A9DF1F00B2A723 /* UserInfoStorage.swift */,
+				8F41107C26A9E22C00B2A723 /* UserInfo.swift */,
+				8F41107E26A9E2B600B2A723 /* UserInfoObject.swift */,
+				8FD4A89126A8B48D005FDCBA /* MobileUpDemo.xcdatamodeld */,
+				8F41108026A9E55400B2A723 /* UsersInfoManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		8FD4A87C26A8B48D005FDCBA = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +85,7 @@
 		8FD4A88726A8B48D005FDCBA /* MobileUpDemo */ = {
 			isa = PBXGroup;
 			children = (
+				8F41107926A9DEDE00B2A723 /* CoreData */,
 				8FD4A88826A8B48D005FDCBA /* AppDelegate.swift */,
 				8FD4A8A626A8BAA3005FDCBA /* Album */,
 				8FD4A8A526A8BA96005FDCBA /* Auth */,
@@ -76,7 +101,6 @@
 				8FD4A89426A8B48E005FDCBA /* Assets.xcassets */,
 				8FD4A88E26A8B48D005FDCBA /* Main.storyboard */,
 				8FD4A89626A8B48E005FDCBA /* LaunchScreen.storyboard */,
-				8FD4A89126A8B48D005FDCBA /* MobileUpDemo.xcdatamodeld */,
 				8FD4A89926A8B48E005FDCBA /* Info.plist */,
 			);
 			path = SupportFiles;
@@ -103,6 +127,8 @@
 		8FD4A8A626A8BAA3005FDCBA /* Album */ = {
 			isa = PBXGroup;
 			children = (
+				8F41108226A9F26600B2A723 /* AlbumVC.swift */,
+				8F41108326A9F26600B2A723 /* AlbumVC.xib */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -167,6 +193,7 @@
 				8FD4A89826A8B48E005FDCBA /* LaunchScreen.storyboard in Resources */,
 				8FD4A89526A8B48E005FDCBA /* Assets.xcassets in Resources */,
 				8F41107826A9AC0A00B2A723 /* AuthVC.xib in Resources */,
+				8F41108526A9F26600B2A723 /* AlbumVC.xib in Resources */,
 				8FD4A8A326A8B57D005FDCBA /* MainVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,7 +207,12 @@
 			files = (
 				8FD4A8A226A8B57D005FDCBA /* MainVC.swift in Sources */,
 				8FD4A88926A8B48D005FDCBA /* AppDelegate.swift in Sources */,
+				8F41108126A9E55400B2A723 /* UsersInfoManager.swift in Sources */,
+				8F41107B26A9DF1F00B2A723 /* UserInfoStorage.swift in Sources */,
 				8F41107726A9AC0A00B2A723 /* AuthVC.swift in Sources */,
+				8F41107F26A9E2B600B2A723 /* UserInfoObject.swift in Sources */,
+				8F41108426A9F26600B2A723 /* AlbumVC.swift in Sources */,
+				8F41107D26A9E22C00B2A723 /* UserInfo.swift in Sources */,
 				8FD4A89326A8B48D005FDCBA /* MobileUpDemo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

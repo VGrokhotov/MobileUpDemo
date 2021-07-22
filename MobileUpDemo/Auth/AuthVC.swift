@@ -10,7 +10,10 @@ import WebKit
 
 class AuthVC: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var webview: WKWebView!
+    
     static var url: URL? {
         var components = URLComponents(string: "https://oauth.vk.com/authorize")
         components?.queryItems = [
@@ -55,12 +58,31 @@ extension AuthVC: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         if let fragment = webview.url?.fragment {
-            print(fragment.split(separator: "&").map({ str -> (String, String) in
-                let values = str.split(separator: "=")
-                return (String(values[0]), String(values[1]))
-            }))
-            /// TODO: save token
-            dismiss(animated: true, completion: nil)
+            var dict = [String: String]()
+            fragment.split(separator: "&").forEach({ str in
+                    let values = str.split(separator: "=")
+                    dict[String(values[0])] = String(values[1])
+                }
+            )
+            guard
+                let token = dict["access_token"],
+                let expiresInString = dict["expires_in"],
+                let expiresIn = Double(expiresInString),
+                let id = dict["user_id"]
+            else {
+                /// TODO: обработать ошибку
+                return
+            }
+            let userInfo = UserInfo(token: token, expires: Date().timeIntervalSince1970 + expiresIn, id: id)
+            activityIndicator.startAnimating()
+            UserInfoStorage.shared.save(user: userInfo) { [weak self] in
+                self?.activityIndicator.stopAnimating()
+                guard let window = UIApplication.shared.windows.first else { return }
+                self?.dismiss(animated: true, completion: nil)
+                window.rootViewController = AlbumVC()
+                window.makeKeyAndVisible()
+                UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
+            }
         }
     }
     
