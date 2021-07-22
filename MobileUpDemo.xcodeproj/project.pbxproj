@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F41107726A9AC0A00B2A723 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F41107526A9AC0A00B2A723 /* AuthVC.swift */; };
+		8F41107826A9AC0A00B2A723 /* AuthVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F41107626A9AC0A00B2A723 /* AuthVC.xib */; };
 		8FD4A88926A8B48D005FDCBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD4A88826A8B48D005FDCBA /* AppDelegate.swift */; };
 		8FD4A89326A8B48D005FDCBA /* MobileUpDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FD4A89126A8B48D005FDCBA /* MobileUpDemo.xcdatamodeld */; };
 		8FD4A89526A8B48E005FDCBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD4A89426A8B48E005FDCBA /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F41107526A9AC0A00B2A723 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		8F41107626A9AC0A00B2A723 /* AuthVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthVC.xib; sourceTree = "<group>"; };
 		8FD4A88526A8B48D005FDCBA /* MobileUpDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD4A88826A8B48D005FDCBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FD4A88F26A8B48D005FDCBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 		8FD4A8A526A8BA96005FDCBA /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				8F41107526A9AC0A00B2A723 /* AuthVC.swift */,
+				8F41107626A9AC0A00B2A723 /* AuthVC.xib */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -160,6 +166,7 @@
 			files = (
 				8FD4A89826A8B48E005FDCBA /* LaunchScreen.storyboard in Resources */,
 				8FD4A89526A8B48E005FDCBA /* Assets.xcassets in Resources */,
+				8F41107826A9AC0A00B2A723 /* AuthVC.xib in Resources */,
 				8FD4A8A326A8B57D005FDCBA /* MainVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,6 +180,7 @@
 			files = (
 				8FD4A8A226A8B57D005FDCBA /* MainVC.swift in Sources */,
 				8FD4A88926A8B48D005FDCBA /* AppDelegate.swift in Sources */,
+				8F41107726A9AC0A00B2A723 /* AuthVC.swift in Sources */,
 				8FD4A89326A8B48D005FDCBA /* MobileUpDemo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

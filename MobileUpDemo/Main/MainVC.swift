@@ -12,7 +12,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     
     @IBAction func enterButtonPressed(_ sender: Any) {
-        print("lol")
+        present(AuthVC(), animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
