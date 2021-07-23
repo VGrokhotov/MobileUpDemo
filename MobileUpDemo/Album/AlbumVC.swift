@@ -14,6 +14,23 @@ class AlbumVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavBar()
+        
+        activityIndicator.startAnimating()
+        AlbumNetworkService.shared.getPhotosWith(offset: 0) { [weak self] photos in
+            photos.response.items.forEach { photo in
+                print(photo.bestSize)
+            }
+            self?.activityIndicator.stopAnimating()
+        } errCompletion: { [weak self] error in
+            /// TODO: обработать ошибку
+            print(error)
+            self?.activityIndicator.stopAnimating()
+        }
+
+    }
+    
+    func configureNavBar() {
         title = "Mobile Up Gallery"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Выход",
