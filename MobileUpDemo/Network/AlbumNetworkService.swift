@@ -19,7 +19,7 @@ class AlbumNetworkService: NetworkService {
             URLQueryItem(name: "album_id", value: "266276915"),
             URLQueryItem(name: "photo_sizes", value: "1"),
             URLQueryItem(name: "offset", value: "0"),
-            URLQueryItem(name: "count", value: "10"),
+            URLQueryItem(name: "count", value: "20"),
             URLQueryItem(name: "v", value: "5.131")
         ]
     }
