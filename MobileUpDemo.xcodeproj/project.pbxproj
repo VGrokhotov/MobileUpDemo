@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,13 @@
 		8F7F212F26AAD03100B58753 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F212E26AAD03100B58753 /* NetworkService.swift */; };
 		8F7F213126AAD11800B58753 /* AlbumNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F213026AAD11800B58753 /* AlbumNetworkService.swift */; };
 		8F7F213326AADD5B00B58753 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F213226AADD5B00B58753 /* Photos.swift */; };
+		8F7F213A26AB03BD00B58753 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F213826AB03BD00B58753 /* PhotoCell.swift */; };
+		8F7F213B26AB03BD00B58753 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F7F213926AB03BD00B58753 /* PhotoCell.xib */; };
+		8F7F213D26AB052900B58753 /* ConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F213C26AB052900B58753 /* ConfigurableView.swift */; };
+		8F7F214026AB5B7800B58753 /* LoadingReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F213E26AB5B7800B58753 /* LoadingReusableView.swift */; };
+		8F7F214126AB5B7800B58753 /* LoadingReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F7F213F26AB5B7800B58753 /* LoadingReusableView.xib */; };
+		8F7F214426AB6A8A00B58753 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7F214326AB6A8A00B58753 /* SkeletonView */; };
+		8F7F214726AB7CFA00B58753 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7F214626AB7CFA00B58753 /* Kingfisher */; };
 		8FD4A88926A8B48D005FDCBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD4A88826A8B48D005FDCBA /* AppDelegate.swift */; };
 		8FD4A89326A8B48D005FDCBA /* MobileUpDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FD4A89126A8B48D005FDCBA /* MobileUpDemo.xcdatamodeld */; };
 		8FD4A89526A8B48E005FDCBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD4A89426A8B48E005FDCBA /* Assets.xcassets */; };
@@ -38,6 +45,11 @@
 		8F7F212E26AAD03100B58753 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8F7F213026AAD11800B58753 /* AlbumNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumNetworkService.swift; sourceTree = "<group>"; };
 		8F7F213226AADD5B00B58753 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		8F7F213826AB03BD00B58753 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		8F7F213926AB03BD00B58753 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
+		8F7F213C26AB052900B58753 /* ConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableView.swift; sourceTree = "<group>"; };
+		8F7F213E26AB5B7800B58753 /* LoadingReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingReusableView.swift; sourceTree = "<group>"; };
+		8F7F213F26AB5B7800B58753 /* LoadingReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingReusableView.xib; sourceTree = "<group>"; };
 		8FD4A88526A8B48D005FDCBA /* MobileUpDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD4A88826A8B48D005FDCBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FD4A88F26A8B48D005FDCBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F7F214726AB7CFA00B58753 /* Kingfisher in Frameworks */,
+				8F7F214426AB6A8A00B58753 /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +132,7 @@
 				8FD4A88E26A8B48D005FDCBA /* Main.storyboard */,
 				8FD4A89626A8B48E005FDCBA /* LaunchScreen.storyboard */,
 				8FD4A89926A8B48E005FDCBA /* Info.plist */,
+				8F7F213C26AB052900B58753 /* ConfigurableView.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -146,6 +161,10 @@
 				8F41108226A9F26600B2A723 /* AlbumVC.swift */,
 				8F41108326A9F26600B2A723 /* AlbumVC.xib */,
 				8F7F213226AADD5B00B58753 /* Photos.swift */,
+				8F7F213826AB03BD00B58753 /* PhotoCell.swift */,
+				8F7F213926AB03BD00B58753 /* PhotoCell.xib */,
+				8F7F213E26AB5B7800B58753 /* LoadingReusableView.swift */,
+				8F7F213F26AB5B7800B58753 /* LoadingReusableView.xib */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -166,6 +185,10 @@
 			dependencies = (
 			);
 			name = MobileUpDemo;
+			packageProductDependencies = (
+				8F7F214326AB6A8A00B58753 /* SkeletonView */,
+				8F7F214626AB7CFA00B58753 /* Kingfisher */,
+			);
 			productName = MobileUpDemo;
 			productReference = 8FD4A88526A8B48D005FDCBA /* MobileUpDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -193,6 +216,10 @@
 				Base,
 			);
 			mainGroup = 8FD4A87C26A8B48D005FDCBA;
+			packageReferences = (
+				8F7F214226AB6A8A00B58753 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				8F7F214526AB7CFA00B58753 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 8FD4A88626A8B48D005FDCBA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -212,6 +239,8 @@
 				8F41107826A9AC0A00B2A723 /* AuthVC.xib in Resources */,
 				8F41108526A9F26600B2A723 /* AlbumVC.xib in Resources */,
 				8FD4A8A326A8B57D005FDCBA /* MainVC.xib in Resources */,
+				8F7F213B26AB03BD00B58753 /* PhotoCell.xib in Resources */,
+				8F7F214126AB5B7800B58753 /* LoadingReusableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,12 +251,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F7F213D26AB052900B58753 /* ConfigurableView.swift in Sources */,
+				8F7F213A26AB03BD00B58753 /* PhotoCell.swift in Sources */,
 				8F7F213326AADD5B00B58753 /* Photos.swift in Sources */,
 				8F7F212F26AAD03100B58753 /* NetworkService.swift in Sources */,
 				8FD4A8A226A8B57D005FDCBA /* MainVC.swift in Sources */,
 				8FD4A88926A8B48D005FDCBA /* AppDelegate.swift in Sources */,
 				8F41108126A9E55400B2A723 /* UsersInfoManager.swift in Sources */,
 				8F7F213126AAD11800B58753 /* AlbumNetworkService.swift in Sources */,
+				8F7F214026AB5B7800B58753 /* LoadingReusableView.swift in Sources */,
 				8F41107B26A9DF1F00B2A723 /* UserInfoStorage.swift in Sources */,
 				8F41107726A9AC0A00B2A723 /* AuthVC.swift in Sources */,
 				8F41107F26A9E2B600B2A723 /* UserInfoObject.swift in Sources */,
@@ -437,6 +469,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8F7F214226AB6A8A00B58753 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.21.2;
+			};
+		};
+		8F7F214526AB7CFA00B58753 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8F7F214326AB6A8A00B58753 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F7F214226AB6A8A00B58753 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+		8F7F214626AB7CFA00B58753 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F7F214526AB7CFA00B58753 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8FD4A89126A8B48D005FDCBA /* MobileUpDemo.xcdatamodeld */ = {
