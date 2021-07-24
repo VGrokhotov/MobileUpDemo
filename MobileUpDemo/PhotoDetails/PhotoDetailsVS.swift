@@ -36,25 +36,28 @@ class PhotoDetailsVS: UIViewController {
             image: UIImage(systemName: "square.and.arrow.up"),
             style: .plain,
             target: self,
-            action: #selector(savePhoto)
+            action: #selector(share)
         )
         navigationItem.rightBarButtonItem?.tintColor = .black
     }
     
-    @objc func savePhoto() {
+    @objc func share() {
         
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        guard let image = image else { return }
         
-        let save = UIAlertAction(title: String(.en("Save to the gallery"), .ru("Сохранить в галерею")), style: .default) { [weak self] _ in
-            guard let self = self else { return }
-            UIImageWriteToSavedPhotosAlbum(self.image, self, #selector(self.saveCompletion), nil)
+        // В задании сказано уведомить пользователя при сохранении
+        let customItem = СustomActivity(
+            title: String(.en("Save with notification"), .ru("Сохранить с уведомлением")),
+            image: UIImage(systemName: "square.and.arrow.down"))
+        { sharedItems in
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.saveCompletion), nil)
         }
-        let cancel = UIAlertAction(title: String(.en("Cancel"), .ru("Отмена")) , style: .cancel)
         
-        actionSheet.addAction(save)
-        actionSheet.addAction(cancel)
-        
-        present(actionSheet, animated: true)
+        let shareSheet = UIActivityViewController(
+            activityItems: [image],
+            applicationActivities: [customItem]
+        )
+        present(shareSheet, animated: true)
     }
     
     @objc func saveCompletion(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
