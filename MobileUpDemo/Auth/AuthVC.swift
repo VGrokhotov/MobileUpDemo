@@ -66,13 +66,9 @@ extension AuthVC: WKNavigationDelegate {
             activityIndicator.startAnimating()
             UserInfoStorage.shared.save(user: userInfo) { [weak self] in
                 self?.activityIndicator.stopAnimating()
-                guard let window = UIApplication.shared.windows.first else { return }
-                let navigationController = UINavigationController()
-                navigationController.setViewControllers([AlbumVC()], animated: false)
                 self?.dismiss(animated: true, completion: nil)
-                window.rootViewController = navigationController
-                window.makeKeyAndVisible()
-                UIView.transition(with: window, duration: 0.7, options: .transitionCrossDissolve, animations: nil, completion: nil)
+                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                appDelegate?.isAuthorized = true
             }
         }
     }

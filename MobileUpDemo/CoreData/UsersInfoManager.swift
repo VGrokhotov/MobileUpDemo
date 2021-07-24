@@ -11,18 +11,16 @@ class UsersInfoManager {
     
     var userInfo: UserInfo?
     
-    var isAuthorized: Bool {
+    func getUserInfo() {
         if let userInfo = UserInfoStorage.shared.get() {
             if Date().timeIntervalSince1970 > userInfo.expires {
                 self.userInfo = nil
-                return false
             } else {
                 self.userInfo = userInfo
-                return true
             }
+        } else {
+            self.userInfo = nil
         }
-        userInfo = nil
-        return false
     }
     
     static let shared = UsersInfoManager()

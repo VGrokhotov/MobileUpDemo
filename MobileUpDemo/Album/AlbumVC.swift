@@ -21,6 +21,8 @@ class AlbumVC: UIViewController {
     let gap = 20
     var count = 0
     
+    let service = AlbumNetworkService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,16 +58,14 @@ class AlbumVC: UIViewController {
         mainActivityIndicator.startAnimating()
         UserInfoStorage.shared.delete { [weak self] in
             self?.mainActivityIndicator.stopAnimating()
-            guard let window = UIApplication.shared.windows.first else { return }
-            window.rootViewController = MainVC()
-            window.makeKeyAndVisible()
-            UIView.transition(with: window, duration: 0.7, options: .transitionCrossDissolve, animations: nil, completion: nil)
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            appDelegate?.isAuthorized = false
         }
     }
     
     func getPhotos() {
         mainActivityIndicator.startAnimating()
-        AlbumNetworkService.shared.getPhotosWith(offset: offset) { [weak self] photos in
+        service.getPhotosWith(offset: offset) { [weak self] photos in
             self?.count = photos.response.count
             self?.data = photos.response.items.map { photo in
                 PhotoInfo(date: photo.date, size: photo.bestSize)
@@ -88,7 +88,7 @@ class AlbumVC: UIViewController {
         if !isLoading {
             isLoading = true
             offset += gap
-            AlbumNetworkService.shared.getPhotosWith(offset: offset) { [weak self] photos in
+            service.getPhotosWith(offset: offset) { [weak self] photos in
                 self?.data.append(contentsOf:
                     photos.response.items.map { photo in
                         PhotoInfo(date: photo.date, size: photo.bestSize)

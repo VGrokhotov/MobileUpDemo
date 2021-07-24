@@ -13,20 +13,34 @@ import Localizer
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var isAuthorized = false {
+        didSet {
+            guard let window = window else { return }
+            UsersInfoManager.shared.getUserInfo()
+            if isAuthorized {
+                let navigationController = UINavigationController()
+                navigationController.setViewControllers([AlbumVC()], animated: false)
+                window.rootViewController = navigationController
+            } else {
+                window.rootViewController = MainVC()
+            }
+            window.makeKeyAndVisible()
+            
+            UIView.transition(with: window, duration: 0.7, options: .transitionCrossDissolve, animations: nil, completion: nil)
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         Localizer.default = .en
 
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        if UsersInfoManager.shared.isAuthorized {
-            let navigationController = UINavigationController()
-            navigationController.setViewControllers([AlbumVC()], animated: false)
-            window?.rootViewController = navigationController
+        UsersInfoManager.shared.getUserInfo()
+        if let _ = UsersInfoManager.shared.userInfo {
+            isAuthorized = true
         } else {
-            window?.rootViewController = MainVC()
+            isAuthorized = false
         }
-        window?.makeKeyAndVisible()
         
         return true
     }

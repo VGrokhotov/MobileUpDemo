@@ -9,7 +9,8 @@ import Foundation
 
 class AlbumNetworkService: NetworkService {
     
-    private override init() {
+    // TODO: придумать что делать при смене ip
+    override init() {
         super.init()
         
         components = URLComponents(string: "https://api.vk.com/method/photos.get")!
@@ -23,7 +24,6 @@ class AlbumNetworkService: NetworkService {
             URLQueryItem(name: "v", value: "5.131")
         ]
     }
-    static let shared = AlbumNetworkService()
     
     static var authURL: URL? {
         var components = URLComponents(string: "https://oauth.vk.com/authorize")
