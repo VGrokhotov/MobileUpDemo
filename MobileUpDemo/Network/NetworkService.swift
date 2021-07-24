@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Localizer
 
 class NetworkService {
     
@@ -15,7 +16,7 @@ class NetworkService {
     
     var components: URLComponents
     
-    let badMessage = "Что-то пошло не так"
+    let badMessage = String(.en("Something went wrong."), .ru("Что-то пошло не так."))
     
     func badURL(_ errCompletion: @escaping (String) -> ()) {
         print("Wrong URL")
@@ -30,7 +31,7 @@ class NetworkService {
         }
     }
     
-    func success<T: Decodable>(with data: Data?, status: Int, completion: @escaping (T) -> ()) {
+    func success<T: Decodable>(with data: Data?, status: Int, completion: @escaping (T) -> (), errCompletion: @escaping (String) -> ()) {
         if let data = data {
             let object = try? JSONDecoder().decode(T.self, from: data)
             if let object = object {
@@ -39,7 +40,15 @@ class NetworkService {
                 }
             } else {
                 DispatchQueue.main.async {
-                    completion(status as! T)
+                    if let response = status as? T {
+                        completion(response)
+                    } else {
+                        let message = String(
+                            .en("Something went wrong while loading. Please try again."),
+                            .ru("Что-то пошло не так при загрузке. Пожалуйста, попробуйте еще раз.")
+                        )
+                        self.failed(message: message, errCompletion: errCompletion)
+                    }
                 }
             }
         }
@@ -64,7 +73,7 @@ class NetworkService {
         print(status)
         switch status {
         case 200...226:
-            success(with: data, status: status, completion: completion)
+            success(with: data, status: status, completion: completion, errCompletion: errCompletion)
         default:
             badCode(data: data, errCompletion: errCompletion)
         }

@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "Localizer",
+        "repositoryURL": "https://github.com/MihaelIsaev/Localizer",
+        "state": {
+          "branch": null,
+          "revision": "6fa620dce9c52d2aab1aca9348f9d8427cfde509",
+          "version": "1.0.2"
+        }
+      },
+      {
         "package": "SkeletonView",
         "repositoryURL": "https://github.com/Juanpe/SkeletonView.git",
         "state": {

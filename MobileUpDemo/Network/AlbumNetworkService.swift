@@ -25,6 +25,20 @@ class AlbumNetworkService: NetworkService {
     }
     static let shared = AlbumNetworkService()
     
+    static var authURL: URL? {
+        var components = URLComponents(string: "https://oauth.vk.com/authorize")
+        components?.queryItems = [
+            URLQueryItem(name: "client_id", value: "7909293"),
+            URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
+            URLQueryItem(name: "display", value: "mobile"),
+            URLQueryItem(name: "scope", value: "wall"),
+            URLQueryItem(name: "response_type", value: "token"),
+            URLQueryItem(name: "revoke", value: "1"),
+            URLQueryItem(name: "v", value: "5.131")
+        ]
+        return components?.url
+    }
+    
     func getPhotosWith(offset: Int, completion: @escaping (Photos) -> (), errCompletion: @escaping (String) -> ()) {
         
         let index = components.queryItems?.firstIndex(where: { item in

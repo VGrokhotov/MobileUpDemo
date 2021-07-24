@@ -39,7 +39,6 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Вход через VK"/>
                     <connections>
                         <action selector="enterButtonPressed:" destination="-1" eventType="touchUpInside" id="ZAc-rH-5As"/>
                     </connections>

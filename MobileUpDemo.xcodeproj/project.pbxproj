@@ -17,6 +17,8 @@
 		8F41108526A9F26600B2A723 /* AlbumVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F41108326A9F26600B2A723 /* AlbumVC.xib */; };
 		8F61A97326AC40BC000FCDD5 /* PhotoDetailsVS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61A97126AC40BC000FCDD5 /* PhotoDetailsVS.swift */; };
 		8F61A97426AC40BC000FCDD5 /* PhotoDetailsVS.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F61A97226AC40BC000FCDD5 /* PhotoDetailsVS.xib */; };
+		8F61A97C26AC805C000FCDD5 /* Localizer in Frameworks */ = {isa = PBXBuildFile; productRef = 8F61A97B26AC805C000FCDD5 /* Localizer */; };
+		8F61A97E26AC80CA000FCDD5 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61A97D26AC80CA000FCDD5 /* UIViewControllerExtension.swift */; };
 		8F7F212F26AAD03100B58753 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F212E26AAD03100B58753 /* NetworkService.swift */; };
 		8F7F213126AAD11800B58753 /* AlbumNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F213026AAD11800B58753 /* AlbumNetworkService.swift */; };
 		8F7F213326AADD5B00B58753 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F213226AADD5B00B58753 /* Photos.swift */; };
@@ -46,6 +48,8 @@
 		8F41108326A9F26600B2A723 /* AlbumVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumVC.xib; sourceTree = "<group>"; };
 		8F61A97126AC40BC000FCDD5 /* PhotoDetailsVS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsVS.swift; sourceTree = "<group>"; };
 		8F61A97226AC40BC000FCDD5 /* PhotoDetailsVS.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailsVS.xib; sourceTree = "<group>"; };
+		8F61A97926AC7FCD000FCDD5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		8F61A97D26AC80CA000FCDD5 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		8F7F212E26AAD03100B58753 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8F7F213026AAD11800B58753 /* AlbumNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumNetworkService.swift; sourceTree = "<group>"; };
 		8F7F213226AADD5B00B58753 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
@@ -56,7 +60,6 @@
 		8F7F213F26AB5B7800B58753 /* LoadingReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingReusableView.xib; sourceTree = "<group>"; };
 		8FD4A88526A8B48D005FDCBA /* MobileUpDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD4A88826A8B48D005FDCBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8FD4A88F26A8B48D005FDCBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FD4A89226A8B48D005FDCBA /* MobileUpDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MobileUpDemo.xcdatamodel; sourceTree = "<group>"; };
 		8FD4A89426A8B48E005FDCBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FD4A89726A8B48E005FDCBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 			files = (
 				8F7F214726AB7CFA00B58753 /* Kingfisher in Frameworks */,
 				8F7F214426AB6A8A00B58753 /* SkeletonView in Frameworks */,
+				8F61A97C26AC805C000FCDD5 /* Localizer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,10 +147,10 @@
 			isa = PBXGroup;
 			children = (
 				8FD4A89426A8B48E005FDCBA /* Assets.xcassets */,
-				8FD4A88E26A8B48D005FDCBA /* Main.storyboard */,
 				8FD4A89626A8B48E005FDCBA /* LaunchScreen.storyboard */,
 				8FD4A89926A8B48E005FDCBA /* Info.plist */,
 				8F7F213C26AB052900B58753 /* ConfigurableView.swift */,
+				8F61A97D26AC80CA000FCDD5 /* UIViewControllerExtension.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -202,6 +206,7 @@
 			packageProductDependencies = (
 				8F7F214326AB6A8A00B58753 /* SkeletonView */,
 				8F7F214626AB7CFA00B58753 /* Kingfisher */,
+				8F61A97B26AC805C000FCDD5 /* Localizer */,
 			);
 			productName = MobileUpDemo;
 			productReference = 8FD4A88526A8B48D005FDCBA /* MobileUpDemo.app */;
@@ -228,11 +233,13 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 8FD4A87C26A8B48D005FDCBA;
 			packageReferences = (
 				8F7F214226AB6A8A00B58753 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				8F7F214526AB7CFA00B58753 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				8F61A97A26AC805C000FCDD5 /* XCRemoteSwiftPackageReference "Localizer" */,
 			);
 			productRefGroup = 8FD4A88626A8B48D005FDCBA /* Products */;
 			projectDirPath = "";
@@ -270,6 +277,7 @@
 				8F7F213A26AB03BD00B58753 /* PhotoCell.swift in Sources */,
 				8F7F213326AADD5B00B58753 /* Photos.swift in Sources */,
 				8F7F212F26AAD03100B58753 /* NetworkService.swift in Sources */,
+				8F61A97E26AC80CA000FCDD5 /* UIViewControllerExtension.swift in Sources */,
 				8F61A97326AC40BC000FCDD5 /* PhotoDetailsVS.swift in Sources */,
 				8FD4A8A226A8B57D005FDCBA /* MainVC.swift in Sources */,
 				8FD4A88926A8B48D005FDCBA /* AppDelegate.swift in Sources */,
@@ -288,18 +296,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8FD4A88E26A8B48D005FDCBA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8FD4A88F26A8B48D005FDCBA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8FD4A89626A8B48E005FDCBA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8FD4A89726A8B48E005FDCBA /* Base */,
+				8F61A97926AC7FCD000FCDD5 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -311,6 +312,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -372,6 +374,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -487,6 +490,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8F61A97A26AC805C000FCDD5 /* XCRemoteSwiftPackageReference "Localizer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MihaelIsaev/Localizer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 		8F7F214226AB6A8A00B58753 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
@@ -506,6 +517,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8F61A97B26AC805C000FCDD5 /* Localizer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F61A97A26AC805C000FCDD5 /* XCRemoteSwiftPackageReference "Localizer" */;
+			productName = Localizer;
+		};
 		8F7F214326AB6A8A00B58753 /* SkeletonView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8F7F214226AB6A8A00B58753 /* XCRemoteSwiftPackageReference "SkeletonView" */;

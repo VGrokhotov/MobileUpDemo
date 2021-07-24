@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Localizer
 
 class AlbumVC: UIViewController {
 
@@ -25,19 +26,7 @@ class AlbumVC: UIViewController {
         
         configureNavBar()
         
-        mainActivityIndicator.startAnimating()
-        AlbumNetworkService.shared.getPhotosWith(offset: offset) { [weak self] photos in
-            self?.count = photos.response.count
-            self?.data = photos.response.items.map { photo in
-                PhotoInfo(date: photo.date, size: photo.bestSize)
-            }
-            self?.mainActivityIndicator.stopAnimating()
-            self?.collectionView.reloadData()
-        } errCompletion: { [weak self] error in
-            /// TODO: обработать ошибку
-            print(error)
-            self?.mainActivityIndicator.stopAnimating()
-        }
+        getPhotos()
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -55,7 +44,7 @@ class AlbumVC: UIViewController {
     func configureNavBar() {
         title = "Mobile Up Gallery"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Выход",
+            title: String(.en("Logout"), .ru("Выход")),
             style: .plain,
             target: self,
             action: #selector(logout)
@@ -74,6 +63,27 @@ class AlbumVC: UIViewController {
         }
     }
     
+    func getPhotos() {
+        mainActivityIndicator.startAnimating()
+        AlbumNetworkService.shared.getPhotosWith(offset: offset) { [weak self] photos in
+            self?.count = photos.response.count
+            self?.data = photos.response.items.map { photo in
+                PhotoInfo(date: photo.date, size: photo.bestSize)
+            }
+            self?.mainActivityIndicator.stopAnimating()
+            self?.collectionView.reloadData()
+        } errCompletion: { [weak self] error in
+            print(error)
+            guard let self = self else { return }
+            self.errorAlert(
+                title: String(.en("Error occurred!"), .ru("Произошла ошибка!")),
+                message: String(.en("Network problem, please try again."), .ru("Проблемы с сетью, повторите попытку.")),
+                retryAction: self.getPhotos
+            )
+            self.mainActivityIndicator.stopAnimating()
+        }
+    }
+    
     func getNextPhotos() {
         if !isLoading {
             isLoading = true
@@ -87,13 +97,17 @@ class AlbumVC: UIViewController {
                 self?.isLoading = false
                 self?.collectionView.reloadData()
             } errCompletion: { [weak self] error in
-                /// TODO: обработать ошибку
                 print(error)
-                self?.isLoading = false
+                guard let self = self else { return }
+                self.errorAlert(
+                    title: String(.en("Error occurred!"), .ru("Произошла ошибка!")),
+                    message: String(.en("Network problem, please try again."), .ru("Проблемы с сетью, повторите попытку.")),
+                    retryAction: self.getNextPhotos
+                )
+                self.isLoading = false
             }
         }
     }
-
 }
 
 extension AlbumVC: UICollectionViewDelegate {
@@ -170,7 +184,6 @@ extension AlbumVC: UICollectionViewDataSource {
         
         return cell
     }
-    
 }
 
 extension AlbumVC: UICollectionViewDelegateFlowLayout {
