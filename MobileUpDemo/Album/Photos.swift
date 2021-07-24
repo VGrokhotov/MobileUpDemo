@@ -17,7 +17,7 @@ struct Response: Decodable {
 }
 
 struct Photo: Decodable {
-    let date: Int
+    let date: Double
     let sizes: [Size]
     
     var bestSize: Size {
@@ -31,6 +31,11 @@ struct Photo: Decodable {
         }
         return sizes[index]
     }
+}
+
+struct PhotoInfo {
+    let date: Double
+    let size: Size
 }
 
 struct Size: Decodable {

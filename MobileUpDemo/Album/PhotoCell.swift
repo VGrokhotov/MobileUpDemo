@@ -13,7 +13,7 @@ class PhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    var data: Size!
+    var data: PhotoInfo!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,12 +25,12 @@ class PhotoCell: UICollectionViewCell {
 }
 
 extension PhotoCell: ConfigurableView {
-    typealias ConfigurationModel = Size
+    typealias ConfigurationModel = PhotoInfo
     
-    func configure(with model: Size) {
+    func configure(with model: PhotoInfo) {
         imageView.showAnimatedGradientSkeleton()
         data = model
-        let url = URL(string: model.url)
+        let url = URL(string: model.size.url)
         imageView.kf.setImage(with: url) { [weak self] result in
             self?.imageView.hideSkeleton(transition: .crossDissolve(0.5))
         }

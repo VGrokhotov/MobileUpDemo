@@ -15,6 +15,8 @@
 		8F41108126A9E55400B2A723 /* UsersInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F41108026A9E55400B2A723 /* UsersInfoManager.swift */; };
 		8F41108426A9F26600B2A723 /* AlbumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F41108226A9F26600B2A723 /* AlbumVC.swift */; };
 		8F41108526A9F26600B2A723 /* AlbumVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F41108326A9F26600B2A723 /* AlbumVC.xib */; };
+		8F61A97326AC40BC000FCDD5 /* PhotoDetailsVS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61A97126AC40BC000FCDD5 /* PhotoDetailsVS.swift */; };
+		8F61A97426AC40BC000FCDD5 /* PhotoDetailsVS.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F61A97226AC40BC000FCDD5 /* PhotoDetailsVS.xib */; };
 		8F7F212F26AAD03100B58753 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F212E26AAD03100B58753 /* NetworkService.swift */; };
 		8F7F213126AAD11800B58753 /* AlbumNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F213026AAD11800B58753 /* AlbumNetworkService.swift */; };
 		8F7F213326AADD5B00B58753 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F213226AADD5B00B58753 /* Photos.swift */; };
@@ -42,6 +44,8 @@
 		8F41108026A9E55400B2A723 /* UsersInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersInfoManager.swift; sourceTree = "<group>"; };
 		8F41108226A9F26600B2A723 /* AlbumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumVC.swift; sourceTree = "<group>"; };
 		8F41108326A9F26600B2A723 /* AlbumVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumVC.xib; sourceTree = "<group>"; };
+		8F61A97126AC40BC000FCDD5 /* PhotoDetailsVS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsVS.swift; sourceTree = "<group>"; };
+		8F61A97226AC40BC000FCDD5 /* PhotoDetailsVS.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailsVS.xib; sourceTree = "<group>"; };
 		8F7F212E26AAD03100B58753 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8F7F213026AAD11800B58753 /* AlbumNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumNetworkService.swift; sourceTree = "<group>"; };
 		8F7F213226AADD5B00B58753 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		8F61A97026AC4067000FCDD5 /* PhotoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				8F61A97126AC40BC000FCDD5 /* PhotoDetailsVS.swift */,
+				8F61A97226AC40BC000FCDD5 /* PhotoDetailsVS.xib */,
+			);
+			path = PhotoDetails;
+			sourceTree = "<group>";
+		};
 		8F7F212D26AACEE100B58753 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +133,7 @@
 				8F41107926A9DEDE00B2A723 /* CoreData */,
 				8FD4A8A426A8BA7F005FDCBA /* Main */,
 				8F7F212D26AACEE100B58753 /* Network */,
+				8F61A97026AC4067000FCDD5 /* PhotoDetails */,
 				8FD4A89F26A8B4EE005FDCBA /* SupportFiles */,
 			);
 			path = MobileUpDemo;
@@ -234,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F61A97426AC40BC000FCDD5 /* PhotoDetailsVS.xib in Resources */,
 				8FD4A89826A8B48E005FDCBA /* LaunchScreen.storyboard in Resources */,
 				8FD4A89526A8B48E005FDCBA /* Assets.xcassets in Resources */,
 				8F41107826A9AC0A00B2A723 /* AuthVC.xib in Resources */,
@@ -255,6 +270,7 @@
 				8F7F213A26AB03BD00B58753 /* PhotoCell.swift in Sources */,
 				8F7F213326AADD5B00B58753 /* Photos.swift in Sources */,
 				8F7F212F26AAD03100B58753 /* NetworkService.swift in Sources */,
+				8F61A97326AC40BC000FCDD5 /* PhotoDetailsVS.swift in Sources */,
 				8FD4A8A226A8B57D005FDCBA /* MainVC.swift in Sources */,
 				8FD4A88926A8B48D005FDCBA /* AppDelegate.swift in Sources */,
 				8F41108126A9E55400B2A723 /* UsersInfoManager.swift in Sources */,

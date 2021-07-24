@@ -14,7 +14,7 @@ class AlbumVC: UIViewController {
     
     var loadingView: LoadingReusableView?
     
-    var data = [Size]()
+    var data = [PhotoInfo]()
     var isLoading = false
     var offset = 0
     let gap = 20
@@ -29,7 +29,7 @@ class AlbumVC: UIViewController {
         AlbumNetworkService.shared.getPhotosWith(offset: offset) { [weak self] photos in
             self?.count = photos.response.count
             self?.data = photos.response.items.map { photo in
-                photo.bestSize
+                PhotoInfo(date: photo.date, size: photo.bestSize)
             }
             self?.mainActivityIndicator.stopAnimating()
             self?.collectionView.reloadData()
@@ -81,7 +81,7 @@ class AlbumVC: UIViewController {
             AlbumNetworkService.shared.getPhotosWith(offset: offset) { [weak self] photos in
                 self?.data.append(contentsOf:
                     photos.response.items.map { photo in
-                        photo.bestSize
+                        PhotoInfo(date: photo.date, size: photo.bestSize)
                     }
                 )
                 self?.isLoading = false
@@ -97,6 +97,17 @@ class AlbumVC: UIViewController {
 }
 
 extension AlbumVC: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        guard
+            let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell,
+            let image = cell.imageView.image
+        else { return }
+        let vc = PhotoDetailsVS(image: image, photoDate: data[indexPath.row].date)
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         if self.isLoading || offset + gap >= count {
