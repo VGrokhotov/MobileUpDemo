@@ -75,12 +75,17 @@ class AlbumVC: UIViewController {
         } errCompletion: { [weak self] error in
             print(error)
             guard let self = self else { return }
-            self.errorAlert(
-                title: String(.en("Error occurred!"), .ru("Произошла ошибка!")),
-                message: String(.en("Network problem, please try again."), .ru("Проблемы с сетью, повторите попытку.")),
-                retryAction: self.getPhotos
-            )
             self.mainActivityIndicator.stopAnimating()
+            switch error {
+                case .other:
+                    self.errorAlert(
+                        title: String(.en("Error occurred!"), .ru("Произошла ошибка!")),
+                        message: String(.en("Network problem, please try again."), .ru("Проблемы с сетью, повторите попытку.")),
+                        retryAction: self.getPhotos
+                    )
+                case .unauthorized:
+                    self.unauthorized()
+            }
         }
     }
     
@@ -99,14 +104,37 @@ class AlbumVC: UIViewController {
             } errCompletion: { [weak self] error in
                 print(error)
                 guard let self = self else { return }
-                self.errorAlert(
-                    title: String(.en("Error occurred!"), .ru("Произошла ошибка!")),
-                    message: String(.en("Network problem, please try again."), .ru("Проблемы с сетью, повторите попытку.")),
-                    retryAction: self.getNextPhotos
-                )
+                self.mainActivityIndicator.stopAnimating()
                 self.isLoading = false
+                switch error {
+                    case .other:
+                        self.errorAlert(
+                            title: String(.en("Error occurred!"), .ru("Произошла ошибка!")),
+                            message: String(.en("Network problem, please try again."), .ru("Проблемы с сетью, повторите попытку.")),
+                            retryAction: self.getNextPhotos
+                        )
+                    case .unauthorized:
+                        self.unauthorized()
+                }
             }
         }
+    }
+    
+    func unauthorized() {
+        errorAlert(
+            title: String(.en("Error occurred!"), .ru("Произошла ошибка!")),
+            message: String(
+                .en("The session has ended. Please sign in again."),
+                .ru("Сессия завершена. Пожалуйста, совершите вход заново.")),
+            okAction:  { [weak self] in
+                self?.mainActivityIndicator.startAnimating()
+                UserInfoStorage.shared.delete {
+                    self?.mainActivityIndicator.stopAnimating()
+                    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                    appDelegate?.isAuthorized = false
+                }
+            }
+        )
     }
 }
 

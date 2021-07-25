@@ -20,6 +20,7 @@
 		8F61A97C26AC805C000FCDD5 /* Localizer in Frameworks */ = {isa = PBXBuildFile; productRef = 8F61A97B26AC805C000FCDD5 /* Localizer */; };
 		8F61A97E26AC80CA000FCDD5 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61A97D26AC80CA000FCDD5 /* UIViewControllerExtension.swift */; };
 		8F61A98026ACB73C000FCDD5 /* СustomActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61A97F26ACB73C000FCDD5 /* СustomActivity.swift */; };
+		8F61A98226ADE604000FCDD5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61A98126ADE604000FCDD5 /* NetworkError.swift */; };
 		8F7F212F26AAD03100B58753 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F212E26AAD03100B58753 /* NetworkService.swift */; };
 		8F7F213126AAD11800B58753 /* AlbumNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F213026AAD11800B58753 /* AlbumNetworkService.swift */; };
 		8F7F213326AADD5B00B58753 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F213226AADD5B00B58753 /* Photos.swift */; };
@@ -52,6 +53,7 @@
 		8F61A97926AC7FCD000FCDD5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8F61A97D26AC80CA000FCDD5 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		8F61A97F26ACB73C000FCDD5 /* СustomActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СustomActivity.swift"; sourceTree = "<group>"; };
+		8F61A98126ADE604000FCDD5 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		8F7F212E26AAD03100B58753 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8F7F213026AAD11800B58753 /* AlbumNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumNetworkService.swift; sourceTree = "<group>"; };
 		8F7F213226AADD5B00B58753 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				8F7F212E26AAD03100B58753 /* NetworkService.swift */,
 				8F7F213026AAD11800B58753 /* AlbumNetworkService.swift */,
+				8F61A98126ADE604000FCDD5 /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				8F41107D26A9E22C00B2A723 /* UserInfo.swift in Sources */,
 				8FD4A89326A8B48D005FDCBA /* MobileUpDemo.xcdatamodeld in Sources */,
 				8F61A98026ACB73C000FCDD5 /* СustomActivity.swift in Sources */,
+				8F61A98226ADE604000FCDD5 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

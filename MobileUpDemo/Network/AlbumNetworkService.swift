@@ -9,7 +9,6 @@ import Foundation
 
 class AlbumNetworkService: NetworkService {
     
-    // TODO: придумать что делать при смене ip
     override init() {
         super.init()
         
@@ -39,7 +38,7 @@ class AlbumNetworkService: NetworkService {
         return components?.url
     }
     
-    func getPhotosWith(offset: Int, completion: @escaping (Photos) -> (), errCompletion: @escaping (String) -> ()) {
+    func getPhotosWith(offset: Int, completion: @escaping (Photos) -> (), errCompletion: @escaping (NetworkError) -> ()) {
         
         let index = components.queryItems?.firstIndex(where: { item in
             item.name == "offset"
@@ -58,7 +57,7 @@ class AlbumNetworkService: NetworkService {
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                self.failed(message: error.localizedDescription, errCompletion: errCompletion)
+                self.failed(error: .other(error.localizedDescription), errCompletion: errCompletion)
             } else if let httpResponse = response as? HTTPURLResponse {
                 self.completionHandler(httpResponse.statusCode, data, completion, errCompletion)
             }

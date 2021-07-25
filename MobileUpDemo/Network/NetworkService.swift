@@ -18,20 +18,20 @@ class NetworkService {
     
     let badMessage = String(.en("Something went wrong."), .ru("Что-то пошло не так."))
     
-    func badURL(_ errCompletion: @escaping (String) -> ()) {
+    func badURL(_ errCompletion: @escaping (NetworkError) -> ()) {
         print("Wrong URL")
         DispatchQueue.main.async {
-            errCompletion(self.badMessage)
+            errCompletion(.other(self.badMessage))
         }
     }
     
-    func failed(message: String, errCompletion: @escaping (String) -> ()) {
+    func failed(error: NetworkError, errCompletion: @escaping (NetworkError) -> ()) {
         DispatchQueue.main.async {
-            errCompletion(message)
+            errCompletion(error)
         }
     }
     
-    func success<T: Decodable>(with data: Data?, status: Int, completion: @escaping (T) -> (), errCompletion: @escaping (String) -> ()) {
+    func success<T: Decodable>(with data: Data?, status: Int, completion: @escaping (T) -> (), errCompletion: @escaping (NetworkError) -> ()) {
         if let data = data {
             let object = try? JSONDecoder().decode(T.self, from: data)
             if let object = object {
@@ -43,24 +43,20 @@ class NetworkService {
                     if let response = status as? T {
                         completion(response)
                     } else {
-                        let message = String(
-                            .en("Something went wrong while loading. Please try again."),
-                            .ru("Что-то пошло не так при загрузке. Пожалуйста, попробуйте еще раз.")
-                        )
-                        self.failed(message: message, errCompletion: errCompletion)
+                        self.failed(error: .unauthorized, errCompletion: errCompletion)
                     }
                 }
             }
         }
     }
     
-    func badCode(data: Data?, errCompletion: @escaping (String) -> ()) {
+    func badCode(data: Data?, errCompletion: @escaping (NetworkError) -> ()) {
         if let data = data {
             let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
             let error = json?["error"] as? [String: Any]
             let message = error?["error_msg"] as? String
             print(message ?? "cannot read JSON")
-            failed(message: message ?? badMessage , errCompletion: errCompletion)
+            failed(error: .other(message ?? badMessage), errCompletion: errCompletion)
         }
     }
     
@@ -68,7 +64,7 @@ class NetworkService {
         _ status: Int,
         _ data: Data?,
         _ completion: @escaping ((T) -> ()),
-        _ errCompletion: @escaping (String) -> ()
+        _ errCompletion: @escaping (NetworkError) -> ()
     ){
         print(status)
         switch status {
