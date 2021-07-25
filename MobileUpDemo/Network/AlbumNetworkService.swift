@@ -14,7 +14,7 @@ class AlbumNetworkService: NetworkService {
         
         components = URLComponents(string: "https://api.vk.com/method/photos.get")!
         components.queryItems = [
-            URLQueryItem(name: "access_token", value: UsersInfoManager.shared.userInfo?.token),
+            URLQueryItem(name: "access_token", value: UserInfoManager.shared.userInfo?.token),
             URLQueryItem(name: "owner_id", value: "-128666765"),
             URLQueryItem(name: "album_id", value: "266276915"),
             URLQueryItem(name: "photo_sizes", value: "1"),

@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-protocol UsersInfoDataManager {
+protocol UserInfoDataManager {
     
     func save(user: UserInfo, completion: @escaping () -> ())
     
@@ -18,7 +18,7 @@ protocol UsersInfoDataManager {
     
 }
 
-class UserInfoStorage: UsersInfoDataManager {
+class UserInfoStorage: UserInfoDataManager {
     
     static let shared = UserInfoStorage()
     private init() {}

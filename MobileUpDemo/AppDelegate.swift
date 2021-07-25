@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var isAuthorized = false {
         didSet {
             guard let window = window else { return }
-            UsersInfoManager.shared.getUserInfo()
+            UserInfoManager.shared.getUserInfo()
             if isAuthorized {
                 let navigationController = UINavigationController()
                 navigationController.setViewControllers([AlbumVC()], animated: false)
@@ -35,8 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Localizer.default = .en
 
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        UsersInfoManager.shared.getUserInfo()
-        if let _ = UsersInfoManager.shared.userInfo {
+        UserInfoManager.shared.getUserInfo()
+        if let _ = UserInfoManager.shared.userInfo {
             isAuthorized = true
         } else {
             isAuthorized = false

@@ -1,5 +1,5 @@
 //
-//  UsersInfoManager.swift
+//  UserInfoManager.swift
 //  MobileUpDemo
 //
 //  Created by Vladislav Grokhotov on 22.07.2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UsersInfoManager {
+class UserInfoManager {
     
     var userInfo: UserInfo?
     
@@ -23,7 +23,7 @@ class UsersInfoManager {
         }
     }
     
-    static let shared = UsersInfoManager()
+    static let shared = UserInfoManager()
     private init(){}
     
 }
