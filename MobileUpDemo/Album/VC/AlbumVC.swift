@@ -146,12 +146,7 @@ extension AlbumVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        
-        guard
-            let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell,
-            let image = cell.imageView.image
-        else { return }
-        let vc = PhotoDetailsVS(image: image, photoDate: data[indexPath.row].date)
+        let vc = PhotoDetailsVS(data: data, initialPhotoIndex: indexPath.row)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -230,7 +225,7 @@ extension AlbumVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let paddingSpace = AlbumVC.sectionInsets.left * (2 + 1)
-        let availableWidth = view.frame.width - paddingSpace
+        let availableWidth = UIScreen.main.bounds.width - paddingSpace
         let widthPerItem = availableWidth / 2
         
         return CGSize(width: widthPerItem, height: widthPerItem)
