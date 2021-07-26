@@ -51,6 +51,13 @@ class AlbumVC: UIViewController {
             action: #selector(logout)
         )
         navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: nil,
+            style: .plain,
+            target: nil,
+            action: nil
+        )
+        navigationItem.backBarButtonItem?.tintColor = .black
     }
     
     @objc func logout() {
