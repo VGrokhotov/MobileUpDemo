@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Localizer
 
 class NetworkService {
     
@@ -16,7 +15,7 @@ class NetworkService {
     
     var components: URLComponents
     
-    let badMessage = String(.en("Something went wrong."), .ru("Что-то пошло не так."))
+    let badMessage = Strings.somethingWentWrong
     
     func badURL(_ errCompletion: @escaping (NetworkError) -> ()) {
         print("Wrong URL")

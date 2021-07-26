@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Localizer
 
 class AlbumVC: UIViewController {
 
@@ -46,7 +45,7 @@ class AlbumVC: UIViewController {
     func configureNavBar() {
         title = "Mobile Up Gallery"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: String(.en("Logout"), .ru("Выход")),
+            title: Strings.logout,
             style: .plain,
             target: self,
             action: #selector(logout)
@@ -79,8 +78,8 @@ class AlbumVC: UIViewController {
             switch error {
                 case .other:
                     self.errorAlert(
-                        title: String(.en("Error occurred!"), .ru("Произошла ошибка!")),
-                        message: String(.en("Network problem, please try again."), .ru("Проблемы с сетью, повторите попытку.")),
+                        title: Strings.errorOccurred,
+                        message: Strings.networkProblem,
                         retryAction: self.getPhotos
                     )
                 case .unauthorized:
@@ -109,8 +108,8 @@ class AlbumVC: UIViewController {
                 switch error {
                     case .other:
                         self.errorAlert(
-                            title: String(.en("Error occurred!"), .ru("Произошла ошибка!")),
-                            message: String(.en("Network problem, please try again."), .ru("Проблемы с сетью, повторите попытку.")),
+                            title: Strings.errorOccurred,
+                            message: Strings.networkProblem,
                             retryAction: self.getNextPhotos
                         )
                     case .unauthorized:
@@ -122,10 +121,8 @@ class AlbumVC: UIViewController {
     
     func unauthorized() {
         errorAlert(
-            title: String(.en("Error occurred!"), .ru("Произошла ошибка!")),
-            message: String(
-                .en("The session has ended. Please sign in again."),
-                .ru("Сессия завершена. Пожалуйста, совершите вход заново.")),
+            title: Strings.errorOccurred,
+            message: Strings.sessionHasEnded,
             okAction:  { [weak self] in
                 self?.mainActivityIndicator.startAnimating()
                 UserInfoStorage.shared.delete {

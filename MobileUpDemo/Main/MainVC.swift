@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Localizer
 
 class MainVC: UIViewController {
     
@@ -25,6 +24,6 @@ class MainVC: UIViewController {
     func configureButton() {
         enterButton.layer.cornerRadius = 10
         enterButton.clipsToBounds = true
-        enterButton.setTitle(String(.en("Enter via VK"), .ru("Вход через VK")), for: .normal)
+        enterButton.setTitle(Strings.enterVK, for: .normal)
     }
 }

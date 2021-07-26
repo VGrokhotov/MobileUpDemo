@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Localizer
 
 enum NetworkError {
     case unauthorized

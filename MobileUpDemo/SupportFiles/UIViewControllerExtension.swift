@@ -6,14 +6,13 @@
 //
 
 import UIKit
-import Localizer
 
 extension UIViewController {
     
     //MARK: Alerts
     
     func createOkAction(action: Optional<() -> ()> = nil) -> UIAlertAction {
-        let okString = String(.en("Ok"), .ru("Ок"))
+        let okString = Strings.ok
         if let action = action {
             return UIAlertAction(title: okString, style: .default) { _ in
                 action()
@@ -38,11 +37,11 @@ extension UIViewController {
         
         if let action = retryAction {
             
-            let retryAction = UIAlertAction(title: String(.en("Retry"), .ru("Попробовать еще")), style: .default) { _ in
+            let retryAction = UIAlertAction(title: Strings.retry, style: .default) { _ in
                 action()
             }
             
-            let cancelAction = UIAlertAction(title: String(.en("Cancel"), .ru("Отмена")), style: .cancel)
+            let cancelAction = UIAlertAction(title: Strings.cancel, style: .cancel)
             
             allert.addAction(retryAction)
             allert.addAction(cancelAction)
@@ -58,8 +57,8 @@ extension UIViewController {
     
     func showError() {
         errorAlert(
-            title: String(.en("Error occurred!"), .ru("Произошла ошибка!")),
-            message: String(.en("Contact the developer for help."), .ru("Обратитесь к разработчику за помощью.")),
+            title: Strings.errorOccurred,
+            message: Strings.contactDeveloper,
             retryAction: nil) {
             self.dismiss(animated: true)
         }

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Localizer
 
 class PhotoDetailsVS: UIViewController {
     
@@ -47,7 +46,7 @@ class PhotoDetailsVS: UIViewController {
         
         // В задании сказано уведомить пользователя при сохранении
         let customItem = СustomActivity(
-            title: String(.en("Save with notification"), .ru("Сохранить с уведомлением")),
+            title: Strings.saveWithNotification,
             image: UIImage(systemName: "square.and.arrow.down"))
         { sharedItems in
             UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.saveCompletion), nil)
@@ -62,14 +61,14 @@ class PhotoDetailsVS: UIViewController {
     
     @objc func saveCompletion(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let _ = error {
-            let errorTitle = String(.en("Save failed!"), .ru("Не удалось сохранить!"))
-            let errorMessage = String(.en("Something went wrong, please, try again."), .ru("Что-то пошло не так, пожалуйста, попробуйте еще раз."))
+            let errorTitle = Strings.saveFailed
+            let errorMessage = Strings.somethingWentWrongWithTryAgain
             errorAlert(title: errorTitle, message: errorMessage, retryAction: {
                 UIImageWriteToSavedPhotosAlbum(self.image, self, #selector(self.saveCompletion), nil)
             })
         } else {
-            let successTitle = String(.en("Success!"), .ru("Сохранено!"))
-            let successMessage = String(.en("Photo saved successfully."), .ru("Фото было успешно сохранено."))
+            let successTitle = Strings.successSave
+            let successMessage = Strings.photoSavedSuccessfully
             alert(title: successTitle, message: successMessage)
         }
     }
