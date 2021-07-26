@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Localizer
 
 class AlbumNetworkService: NetworkService {
     
@@ -35,6 +36,15 @@ class AlbumNetworkService: NetworkService {
             URLQueryItem(name: "revoke", value: "1"),
             URLQueryItem(name: "v", value: "5.131")
         ]
+        switch Localizer.current {
+        case .en:
+            components?.queryItems?.append(URLQueryItem(name: "lang", value: "3"))
+        case .ru_RU, .ru, .ru_MD, .ru_UA:
+            components?.queryItems?.append(URLQueryItem(name: "lang", value: "0"))
+        default:
+            components?.queryItems?.append(URLQueryItem(name: "lang", value: "3"))
+        }
+        
         return components?.url
     }
     
