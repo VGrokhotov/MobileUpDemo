@@ -13,7 +13,7 @@ class PhotoDetailsVS: UIViewController {
     @IBOutlet weak var bottomCollectionView: UICollectionView!
     
     var data: [PhotoInfo]!
-    var initialPhotoIndex: Int!
+    var initialPhotoIndex: Int = 0
     
     convenience init(data: [PhotoInfo], initialPhotoIndex: Int) {
         self.init()
@@ -42,7 +42,7 @@ class PhotoDetailsVS: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        mainCollectionView.scrollToItem(at: IndexPath(row: initialPhotoIndex, section: 0), at: .centeredHorizontally, animated: false)
+        mainCollectionView.setContentOffset(CGPoint(x: initialPhotoIndex * Int(UIScreen.main.bounds.width), y: 0), animated: true)
         bottomCollectionView.scrollToItem(at: IndexPath(row: initialPhotoIndex, section: 0), at: .centeredHorizontally, animated: false)
     }
     
