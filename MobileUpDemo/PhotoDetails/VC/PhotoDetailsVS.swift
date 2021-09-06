@@ -14,6 +14,7 @@ class PhotoDetailsVS: UIViewController {
     
     var data: [PhotoInfo]!
     var initialPhotoIndex: Int = 0
+    var isfirstScroll = true
     
     convenience init(data: [PhotoInfo], initialPhotoIndex: Int) {
         self.init()
@@ -42,8 +43,11 @@ class PhotoDetailsVS: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        mainCollectionView.setContentOffset(CGPoint(x: initialPhotoIndex * Int(UIScreen.main.bounds.width), y: 0), animated: true)
-        bottomCollectionView.scrollToItem(at: IndexPath(row: initialPhotoIndex, section: 0), at: .centeredHorizontally, animated: false)
+        if isfirstScroll {
+            mainCollectionView.scrollToItem(at: IndexPath(row: initialPhotoIndex, section: 0), at: .centeredHorizontally, animated: false)
+            bottomCollectionView.scrollToItem(at: IndexPath(row: initialPhotoIndex, section: 0), at: .centeredHorizontally, animated: false)
+            isfirstScroll = false
+        }
     }
     
     func setTitle(with date: Double) {

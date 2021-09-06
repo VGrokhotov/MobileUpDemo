@@ -28,6 +28,7 @@ extension PhotoCell: ConfigurableView {
     typealias ConfigurationModel = PhotoInfo
     
     func configure(with model: PhotoInfo) {
+        imageView.image = nil
         imageView.showAnimatedGradientSkeleton()
         data = model
         let url = URL(string: model.size.url)
